@@ -15,9 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aerolinea.Data", "Aerolinea
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aerolinea.Infraestructure", "Aerolinea\Aerolinea.Infraestructure.csproj", "{8C559ED3-B751-4DDB-BBB8-4DF9B9A1CF39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aerolinea.Business", "Aerolinea.Business\Aerolinea.Business.csproj", "{6C001FA2-96E1-4092-936D-96F334DBA25C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aerolinea.Business", "Aerolinea.Business\Aerolinea.Business.csproj", "{6C001FA2-96E1-4092-936D-96F334DBA25C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aerolinea.Api", "Aerolinea.Api\Aerolinea.Api.csproj", "{9020D177-15FE-43D3-88F3-72235DACFD8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aerolinea.Api", "Aerolinea.Api\Aerolinea.Api.csproj", "{9020D177-15FE-43D3-88F3-72235DACFD8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

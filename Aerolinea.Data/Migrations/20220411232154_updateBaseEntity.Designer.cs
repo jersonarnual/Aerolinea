@@ -4,14 +4,16 @@ using Aerolinea.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Aerolinea.Data.Migrations
 {
     [DbContext(typeof(AirlineContext))]
-    partial class AirlineContextModelSnapshot : ModelSnapshot
+    [Migration("20220411232154_updateBaseEntity")]
+    partial class updateBaseEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

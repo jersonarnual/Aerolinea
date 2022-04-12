@@ -71,6 +71,7 @@ namespace Aerolinea.Business
                 {
                     result.MessageException = $"ERROR: El objeto se encuentra vacio";
                     result.State = false;
+                    return result;
                 }
                 foreach (var item in model)
                     flightDTO.Add(ConvertToDTO(item));
@@ -219,6 +220,7 @@ namespace Aerolinea.Business
                 {
                     result.MessageException = $"ERROR: El objeto se encuentra vacio";
                     result.State = false;
+                    return result;
                 }
                 foreach (var item in model)
                     flightDTO.Add(ConvertToDTOFlightPath(item));

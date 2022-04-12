@@ -5,26 +5,11 @@ namespace Aerolinea.Infraestructure.DTO
 {
     public class PersonDTO
     {
-        public Guid Id
-        {
-            get; set;
-        }
-        public string CreateBy
-        {
-            get; set;
-        }
-        public string UpdateBy
-        {
-            get; set;
-        }
-        public DateTime? CreateTime
-        {
-            get; set;
-        }
-        public DateTime? UpdateTime
-        {
-            get; set;
-        }
+        public Guid Id { get; set; }
+        public string CreateBy { get; set; }
+        public string UpdateBy { get; set; }
+        public DateTime? CreateTime { get; set; }
+        public DateTime? UpdateTime { get; set; }
         public string FirtName { get; set; }
         public string SecondName { get; set; }
         public string Document { get; set; }

@@ -11,7 +11,7 @@ namespace Aerolinea.Infraestructure.Util
         public bool State { get; set; }
         public string Message { get; set; }
         public string MessageException { get; set; }
-        public dynamic Model { get; set; }
-        public IEnumerable<dynamic> ListModel { get; set; }
+        public object Model { get; set; }
+        public IEnumerable<object> ListModel { get; set; }
     }
 }

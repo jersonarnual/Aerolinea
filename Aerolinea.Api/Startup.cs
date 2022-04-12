@@ -1,3 +1,5 @@
+using Aerolinea.Business;
+using Aerolinea.Business.Interface;
 using Aerolinea.Data.Context;
 using Aerolinea.Data.Interface;
 using Aerolinea.Data.Repository;
@@ -32,6 +34,10 @@ namespace Aerolinea.Api
         {
             string connString = Configuration.GetConnectionString("Air");
             services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Aerolinea.Api", Version = "v1" });
+            });
             services.AddDbContext<AirlineContext>(item => item.UseSqlServer(connString), ServiceLifetime.Transient);
             LoadScopes(services);
             services.AddMvc();
@@ -60,10 +66,13 @@ namespace Aerolinea.Api
         }
 
         #region Private Methods 
-        private void LoadScopes(IServiceCollection services)
+        private static void LoadScopes(IServiceCollection services)
         {
             //Repository
             services.AddScoped(typeof(IDefaultRepository<>), typeof(DefaultRepository<>));
+            services.AddScoped<IFlightBusiness, FlightBusiness>();
+            services.AddScoped<IPassageBusiness, PassageBusiness>();
+            services.AddScoped<IPersonBusiness, PersonBusiness>();
         }
         #endregion
 

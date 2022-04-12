@@ -1,4 +1,5 @@
 ﻿using Aerolinea.Business.Interface;
+using Aerolinea.Business.Model;
 using Aerolinea.Data.Interface;
 using Aerolinea.Data.Models;
 using Aerolinea.Infraestructure.DTO;
@@ -66,6 +67,36 @@ namespace Aerolinea.Business
                 {
                     result.MessageException = $"ERROR: El objeto se encuentra vacio";
                     result.State = false;
+                    return result;
+                }
+                foreach (var item in model)
+                    PassageDTO.Add(ConvertToDTO(item));
+
+                result.ListModel = PassageDTO;
+                result.Message = "Operacion Exitosa";
+                result.State = true;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                result.MessageException = $"ERROR: {ex.Message} {ex.StackTrace}";
+                result.State = false;
+                return result;
+            }
+        }
+
+        public Result GetFilter(FilterPassage filterPassage) {
+            Result result = new();
+            List<PassageDTO> PassageDTO = new();
+            try
+            {
+                var model = _repository.GetAll().Where(x => ((string.IsNullOrEmpty(filterPassage.CodeFlight.ToString())) || (x.Id== filterPassage.CodeFlight)) &&
+                                                            (string.IsNullOrEmpty(filterPassage.DateFlight.ToString())) || (x.Time == filterPassage.DateFlight));
+                if (!model.Any() || object.Equals(model, null))
+                {
+                    result.MessageException = $"ERROR: El objeto se encuentra vacio";
+                    result.State = false;
+                    return result;
                 }
                 foreach (var item in model)
                     PassageDTO.Add(ConvertToDTO(item));

@@ -27,5 +27,9 @@ namespace Aerolinea.Data.Context
         public virtual DbSet<StateFlight> StateFlight { get; set; }
         public virtual DbSet<TypeDocument> TypeDocument { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+        }
+
     }
 }

@@ -66,6 +66,7 @@ namespace Aerolinea.Business
                 {
                     result.MessageException = $"ERROR: El objeto se encuentra vacio";
                     result.State = false;
+                    return result;
                 }
                 foreach (var item in model)
                     PersonDTO.Add(ConvertToDTO(item));
@@ -176,16 +177,16 @@ namespace Aerolinea.Business
             if (model != null)
                 return new Person()
                 {
-                    UpdateBy = model.UpdateBy,
-                    CreateBy = model.CreateBy,
-                    UpdateTime = (DateTime)model.UpdateTime,
-                    CreateTime = (DateTime)model.CreateTime,
+                    UpdateBy = model.UpdateBy ?? string.Empty,
+                    CreateBy = model.CreateBy ?? string.Empty,
+                    UpdateTime = model.UpdateTime,
+                    CreateTime = model.CreateTime,
                     Id = model.Id,
-                    FirtName = model.FirtName,
-                    SecondName = model.SecondName,
-                    Document = model.Document,
+                    FirtName = model.FirtName ?? string.Empty,
+                    SecondName = model.SecondName ?? string.Empty,
+                    Document = model.Document ?? string.Empty,
                     DateBirth = model.DateBirth,
-                    CellPhone = model.CellPhone,
+                    CellPhone = model.CellPhone ?? string.Empty,
                     ListPassage = (ICollection<Passage>)model.ListPassageDTO,
                 };
             return null;
@@ -196,16 +197,16 @@ namespace Aerolinea.Business
             if (model != null)
                 return new PersonDTO()
                 {
-                    UpdateBy = model.UpdateBy,
-                    CreateBy = model.CreateBy,
-                    UpdateTime = (DateTime)model.UpdateTime,
-                    CreateTime = (DateTime)model.CreateTime,
+                    UpdateBy = model.UpdateBy ?? string.Empty,
+                    CreateBy = model.CreateBy ?? string.Empty,
+                    UpdateTime = model.UpdateTime,
+                    CreateTime = model.CreateTime,
                     Id = model.Id,
-                    FirtName = model.FirtName,
-                    SecondName = model.SecondName,
-                    Document = model.Document,
+                    FirtName = model.FirtName ?? string.Empty,
+                    SecondName = model.SecondName ?? string.Empty,
+                    Document = model.Document ?? string.Empty,
                     DateBirth = model.DateBirth,
-                    CellPhone = model.CellPhone,
+                    CellPhone = model.CellPhone ?? string.Empty,
                     ListPassageDTO = (ICollection<PassageDTO>)model.ListPassage,
                 };
             return null;
