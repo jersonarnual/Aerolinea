@@ -1,10 +1,10 @@
 ﻿using Aerolinea.Business.Interface;
 using Aerolinea.Business.Model;
+using Aerolinea.Infraestructure.DTO;
 using Aerolinea.Infraestructure.Util;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using System;
-
+using System.Collections.Generic;
 
 namespace Aerolinea.Api.Controllers
 {
@@ -21,52 +21,46 @@ namespace Aerolinea.Api.Controllers
         }
 
         [HttpGet]
-        public string Get()
+        public IEnumerable<object> Get()
         {
-            string result = string.Empty;
             Result model = _pasaggeBusiness.GetAll();
-            if (object.Equals(model, null))
-                return result;
-            result = JsonConvert.SerializeObject(model.ListModel);
-            return result;
+            if (object.Equals(model.ListModel, null))
+                return null;
+            return model.ListModel;
         }
 
         [HttpPost]
-        public string Get(FilterPassage filterPassage)
+        public IEnumerable<object> Get(FilterPassage filterPassage)
         {
-            string result = string.Empty;
             Result model = _pasaggeBusiness.GetFilter(filterPassage);
             if (object.Equals(model.ListModel, null))
-                return result;
-            result = JsonConvert.SerializeObject(model.ListModel);
-            return result;
+                return null;
+            return model.ListModel;
         }
 
         [HttpGet("{id}")]
-        public string GetById(Guid id)
+        public object GetById(Guid id)
         {
-            string result = string.Empty;
             Result model = _pasaggeBusiness.GetById(id);
             if (object.Equals(model.ListModel, null))
-                return result;
-            result = JsonConvert.SerializeObject(model.ListModel);
-            return result;
+                return null;
+            return model.ListModel;
         }
 
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post(PassageDTO value)
         {
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(Guid id, [FromBody] string value)
         {
         }
 
         [HttpDelete]
         public void Delete([FromBody] string value)
         {
- 
+
         }
     }
 }

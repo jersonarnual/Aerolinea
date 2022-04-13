@@ -1,9 +1,6 @@
 ﻿using Aerolinea.Business.Interface;
-using Aerolinea.Infraestructure.DTO;
 using Aerolinea.Infraestructure.Util;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 
 namespace Aerolinea.Api.Controllers
@@ -20,15 +17,13 @@ namespace Aerolinea.Api.Controllers
         }
 
         [HttpGet]
-        public string GetAll()
+        public IEnumerable<object> GetAll()
         {
-            string result = string.Empty;
             Result model = _personBusiness.GetAll();
-            if (object.Equals(model, null))
-                return result;
-            result = JsonConvert.SerializeObject(model.ListModel);
-            return result;
+            if (object.Equals(model.ListModel, null))
+                return null;
+            return model.ListModel;
         }
-    
+
     }
 }
